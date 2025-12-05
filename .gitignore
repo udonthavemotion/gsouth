@@ -46,14 +46,12 @@ Thumbs.db
 /13*.mp4
 /14*.mp4
 
-# Video files - excluded from Git (too large, use external hosting/CDN)
-public/assets/video/**/*.mp4
-public/assets/video/**/*.mov
-public/assets/video/**/*.avi
-public/assets/video/**/*.webm
-public/assets/images/**/*.mp4
+# Original video backups (excluded - keep optimized versions only)
 public/assets/video/_original/
 public/assets/images/**/_original/
+
+# Large unoptimized videos (if any exist outside _original folder)
+# Optimized videos in public/assets/video/ will be included in Git
 
 # Documentation/research files (not needed for production)
 analysis
