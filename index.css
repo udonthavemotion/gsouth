@@ -1,0 +1,569 @@
+/* Typography - Distinctive font pairing */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   MODERN 2025-2026 GULF SOUTH HOMES STYLES
+   ======================================== */
+
+/* CSS Custom Properties */
+:root {
+  /* Colors */
+  --color-primary: #059669;
+  --color-primary-dark: #047857;
+  --color-primary-light: #10B981;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, #059669 0%, #047857 50%, #065f46 100%);
+  --gradient-hero: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.85) 100%);
+  --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  --gradient-text: linear-gradient(135deg, #ffffff 0%, #e7e5e4 100%);
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.05);
+  --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
+  --shadow-glow: 0 0 40px rgba(5, 150, 105, 0.3);
+  --shadow-card: 0 4px 20px rgba(0,0,0,0.08);
+  --shadow-card-hover: 0 20px 40px rgba(0,0,0,0.15);
+  
+  /* Animation timing */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quart: cubic-bezier(0.25, 1, 0.5, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@layer base {
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply text-stone-800 bg-stone-50;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', system-ui, sans-serif;
+    @apply font-bold text-stone-900;
+  }
+
+  /* Selection */
+  ::selection {
+    @apply bg-primary text-white;
+  }
+}
+
+/* ========================================
+   KEYFRAME ANIMATIONS
+   ======================================== */
+
+/* Fade in up - entrance animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in - simple */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Scale in */
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Slide in from left */
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Slide in from right */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Float animation for subtle movement */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* Pulse glow */
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 20px rgba(5, 150, 105, 0.4); }
+  50% { box-shadow: 0 0 40px rgba(5, 150, 105, 0.6); }
+}
+
+/* Gradient shift for backgrounds */
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Text reveal */
+@keyframes textReveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* Shimmer effect */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+/* ========================================
+   ANIMATION UTILITY CLASSES
+   ======================================== */
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+  opacity: 0; /* Initial state */
+}
+
+/* Mobile menu item animation */
+.mobile-menu-item {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.mobile-menu-item.animate-fade-in-up {
+  animation: fadeInUp 0.4s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s var(--ease-out-quart) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s var(--ease-out-expo) forwards;
+}
+
+.animate-slide-left {
+  animation: slideInLeft 0.7s var(--ease-out-expo) forwards;
+}
+
+.animate-slide-right {
+  animation: slideInRight 0.7s var(--ease-out-expo) forwards;
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Staggered animation delays */
+.delay-100 { animation-delay: 100ms; }
+.delay-200 { animation-delay: 200ms; }
+.delay-300 { animation-delay: 300ms; }
+.delay-400 { animation-delay: 400ms; }
+.delay-500 { animation-delay: 500ms; }
+.delay-600 { animation-delay: 600ms; }
+.delay-700 { animation-delay: 700ms; }
+.delay-800 { animation-delay: 800ms; }
+
+/* Initial state for animations */
+.will-animate {
+  opacity: 0;
+}
+
+/* ========================================
+   COMPONENT STYLES
+   ======================================== */
+
+@layer components {
+  /* Modern Button Styles */
+  .btn {
+    @apply px-6 py-3 rounded-md font-semibold transition-all duration-300;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .btn-primary {
+    @apply bg-primary text-white;
+    box-shadow: 0 4px 14px rgba(5, 150, 105, 0.4);
+  }
+
+  .btn-primary:hover {
+    @apply bg-primary-dark;
+    box-shadow: 0 6px 20px rgba(5, 150, 105, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-primary:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  .btn-secondary {
+    @apply bg-amber-500 text-white;
+    box-shadow: 0 4px 14px rgba(245, 158, 11, 0.4);
+  }
+
+  .btn-secondary:hover {
+    @apply bg-amber-600;
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    @apply border-2 border-stone-300 text-stone-700 bg-transparent;
+  }
+
+  .btn-outline:hover {
+    @apply border-primary text-primary bg-primary/5;
+    transform: translateY(-2px);
+  }
+
+  /* Card component */
+  .glass-card {
+    @apply bg-white rounded-lg;
+    border: 1px solid rgba(231, 229, 228, 0.5);
+    box-shadow: var(--shadow-lg);
+  }
+
+  /* Premium card with hover lift */
+  .card-hover {
+    @apply transition-all duration-500;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-card-hover);
+  }
+
+  /* Gradient text */
+  .text-gradient {
+    background: linear-gradient(135deg, #059669 0%, #10B981 50%, #34D399 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Hero gradient overlay */
+  .hero-overlay {
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 25, 23, 0.2) 0%,
+      rgba(28, 25, 23, 0.4) 40%,
+      rgba(28, 25, 23, 0.8) 80%,
+      rgba(28, 25, 23, 0.95) 100%
+    );
+  }
+
+  /* Section divider - wave */
+  .section-wave {
+    position: relative;
+  }
+
+  .section-wave::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1440 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z' fill='%23FAFAF9'/%3E%3C/svg%3E") no-repeat center;
+    background-size: cover;
+  }
+
+  /* Badge/chip tag */
+  .pill {
+    @apply inline-flex items-center px-4 py-1.5 rounded-md text-sm font-medium;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .pill-primary {
+    @apply bg-primary/10 text-primary;
+  }
+
+  .pill-dark {
+    @apply bg-stone-900 text-white;
+  }
+
+  /* Stats number */
+  .stat-number {
+    font-family: 'Outfit', sans-serif;
+    @apply text-4xl md:text-5xl font-bold;
+  }
+
+  /* Input focus ring */
+  .input-modern {
+    @apply w-full px-4 py-3.5 bg-white border-2 border-stone-200 rounded-lg;
+    @apply focus:border-primary focus:ring-4 focus:ring-primary/10 outline-none;
+    @apply transition-all duration-200;
+  }
+
+  .input-modern:hover {
+    @apply border-stone-300;
+  }
+
+  /* Label */
+  .label-modern {
+    @apply block text-sm font-semibold text-stone-700 mb-2;
+    font-family: 'Outfit', sans-serif;
+  }
+}
+
+/* ========================================
+   NAVBAR STYLES
+   ======================================== */
+
+.navbar-glass {
+  @apply bg-white;
+  border-bottom: 1px solid rgba(231, 229, 228, 0.5);
+}
+
+.nav-link {
+  @apply relative py-2 text-sm font-medium text-stone-600 transition-colors duration-200;
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-primary);
+  transition: width 0.3s var(--ease-out-expo);
+}
+
+.nav-link:hover {
+  @apply text-stone-900;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+.nav-link.active {
+  @apply text-primary;
+}
+
+/* ========================================
+   HERO SECTION STYLES
+   ======================================== */
+
+.hero-title {
+  font-family: 'Outfit', sans-serif;
+  @apply text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white leading-[0.95];
+  letter-spacing: -0.03em;
+}
+
+.hero-subtitle {
+  @apply text-lg sm:text-xl md:text-2xl text-stone-200 font-light;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+/* ========================================
+   CARD HOVER EFFECTS
+   ======================================== */
+
+.home-card {
+  @apply relative overflow-hidden rounded-2xl bg-white;
+  box-shadow: var(--shadow-card);
+  transition: all 0.5s var(--ease-out-expo);
+}
+
+.home-card:hover {
+  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-12px);
+}
+
+.home-card .card-image {
+  @apply transition-transform duration-700;
+}
+
+.home-card:hover .card-image {
+  transform: scale(1.08);
+}
+
+.home-card .card-overlay {
+  @apply absolute inset-0 bg-gradient-to-t from-stone-900/80 via-stone-900/20 to-transparent;
+  @apply opacity-60 transition-opacity duration-500;
+}
+
+.home-card:hover .card-overlay {
+  @apply opacity-80;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f5f5f4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #d6d3d1;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #a8a29e;
+}
+
+/* ========================================
+   RESPONSIVE UTILITIES
+   ======================================== */
+
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-4xl;
+    letter-spacing: -0.02em;
+  }
+  
+  .stat-number {
+    @apply text-3xl;
+  }
+}
+
+/* ========================================
+   MOBILE PERFORMANCE OPTIMIZATIONS
+   ======================================== */
+
+@media (max-width: 768px) {
+  /* Reduce animation complexity on mobile */
+  * {
+    animation-duration: 0.3s !important;
+    transition-duration: 0.2s !important;
+  }
+  
+  /* Optimize video playback */
+  video {
+    object-fit: cover;
+  }
+  
+  /* Reduce shadow complexity for better performance */
+  .home-card {
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1) !important;
+  }
+  
+  /* Optimize font rendering */
+  body {
+    text-rendering: optimizeSpeed;
+    -webkit-font-smoothing: antialiased;
+  }
+  
+  /* Ensure touch-friendly tap targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* Safe area insets for notched devices */
+@supports (padding: max(0px)) {
+  .mobile-menu {
+    padding-bottom: max(env(safe-area-inset-bottom), 1rem);
+  }
+}
+
+/* Reduced motion support for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ========================================
+   SPECIAL EFFECTS
+   ======================================== */
+
+/* Shimmer loading effect */
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    rgba(255,255,255,0) 0%,
+    rgba(255,255,255,0.3) 50%,
+    rgba(255,255,255,0) 100%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Glow effect on primary elements */
+.glow-primary {
+  box-shadow: 0 0 30px rgba(5, 150, 105, 0.4);
+}
+
+/* Subtle grain texture overlay */
+.grain-overlay {
+  position: relative;
+}
+
+.grain-overlay::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.03;
+  pointer-events: none;
+}
+
+/* Video overlay enhancement */
+.video-overlay {
+  @apply absolute inset-0;
+  background: linear-gradient(
+    180deg,
+    rgba(28, 25, 23, 0.3) 0%,
+    rgba(28, 25, 23, 0.1) 30%,
+    rgba(28, 25, 23, 0.4) 70%,
+    rgba(28, 25, 23, 0.9) 100%
+  );
+}
